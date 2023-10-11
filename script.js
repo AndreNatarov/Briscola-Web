@@ -6,7 +6,7 @@ class Carta{
         this.valore_punteggio = valore_punteggio;
         this.seme = seme["spada","denaro","bastone","coppa"];
         this.briscola = briscola;
-
+        //CHE BRISCOLA !
     }
 
 }
