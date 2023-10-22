@@ -70,13 +70,11 @@ for(var i = 0; i < 10; i++){
     }
 }  
 
-Mescolamento_Carte(mazzo_di_carte);
-
 function Assegna_Briscola(mazzo_di_carte){
 
-    let numero_randomico = Math.random() * 4;
+    let numero_randomico = Math.floor(Math.random() * 4);
 
-    for(let i = o; i < mazzo_di_carte.length; i++){
+    for(let i = 0; i < mazzo_di_carte.length; i++){
 
         if(mazzo_di_carte[i].seme == numero_randomico)
             mazzo_di_carte[i].briscola = true;
@@ -84,4 +82,12 @@ function Assegna_Briscola(mazzo_di_carte){
     }
 }
 
-console.log(mazzo_di_carte[0])
+function Assegnazione_Iniziale_Mazzo_Giocatori(){
+
+    
+
+}
+
+Mescolamento_Carte(mazzo_di_carte);
+Assegna_Briscola(mazzo_di_carte);
+console.log(mazzo_di_carte[0]);
