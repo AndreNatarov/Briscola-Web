@@ -8,7 +8,7 @@ class Carta{
         this.briscola = briscola;
     }
 }
-
+var mazzo_di_carte_giocatore_1 = [], mazzo_di_carte_giocatore_2 = [];
 var mazzo_di_carte = [];
 
     mazzo_di_carte[0] = new Carta(1, 0, 0, false);              //2 di spade
@@ -82,12 +82,31 @@ function Assegna_Briscola(mazzo_di_carte){
     }
 }
 
-function Assegnazione_Iniziale_Mazzo_Giocatori(){
+function Assegnazione_Iniziale_Mazzo_Giocatori() {
+    let giocatore_corrente = Math.floor(Math.random() * 2);
 
-    
-
+    for (let i = 0; i < 6; i++) {
+        for (let j = 0; j < mazzo_di_carte.length; j++) {
+            if (mazzo_di_carte[j] !== undefined) {
+                if (giocatore_corrente === 0) {
+                    mazzo_di_carte_giocatore_1.push(mazzo_di_carte[j]);
+                } else if (giocatore_corrente === 1) {
+                    mazzo_di_carte_giocatore_2.push(mazzo_di_carte[j]);
+                }
+                mazzo_di_carte.splice(j, 1); // Rimuovi la carta dal mazzo di carte
+                giocatore_corrente = 1 - giocatore_corrente; // Alterna tra giocatore 0 e giocatore 1
+                break; // Esci dal ciclo interno
+            }
+        }
+    }
+    console.log(mazzo_di_carte_giocatore_1);
+    console.log(mazzo_di_carte_giocatore_2);
 }
+
 
 Mescolamento_Carte(mazzo_di_carte);
 Assegna_Briscola(mazzo_di_carte);
+Assegnazione_Iniziale_Mazzo_Giocatori(mazzo_di_carte);
 console.log(mazzo_di_carte[0]);
+console.log(mazzo_di_carte[39]);
+
