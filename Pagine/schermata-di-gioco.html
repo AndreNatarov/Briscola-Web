@@ -11,13 +11,20 @@
     </head>
     <body>
         <div class="text-center container-fluid sticky-top p-4">
-            <img class="img-fluid" src="/Immagini/B10.png">
+            <img style="height: 170px;" src="/Immagini/R.png" id="AI1"> <!--Carte avversario, sempre gestite da un ID-->
+            <img style="height: 170px;" src="/Immagini/R.png" id="AI2">
+            <img style="height: 170px;" src="/Immagini/R.png" id="AI3">
+        </div>
+        <div class="position-absolute top-50 translate-middle">
+            <img style="height: 170px;" src="/Immagini/R.png" id="Mazzo">   <!--Credo si capisca, è semplicemente il mazzo-->
         </div>
         <div class="position-absolute top-50 start-50 translate-middle">
-            <img class="img-fluid" src="/Immagini/B10.png">
+            <img class="img-fluid" id="Tavolo">   <!--Carte in tavola, ha l'ID che viene modificato dal JS-->
         </div>
         <div class="text-center container-fluid fixed-bottom p-4">
-            <img class="img-fluid" src="/Immagini/B10.png">
+            <img class="img-fluid" id="P1"> <!--Carte tue, ogni IMG ha un'ID che viene modificato dal JS-->
+            <img class="img-fluid" id="P2">
+            <img class="img-fluid" id="P3">
         </div>
     </body>
 </html> 
