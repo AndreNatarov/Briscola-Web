@@ -1,6 +1,6 @@
 class Carta{
 
-    constructor(valore,valore_punteggio,seme,briscola){
+    constructor(valore,valore_punteggio,seme,briscola,id_giocatore){
 
         this.valore = valore;   //Si inizia da 1 a 10 e l'ordine e' 2, 4, 5, 6, 7, fante, cavaliere, re, 3, asso
         this.valore_punteggio = valore_punteggio;
@@ -109,16 +109,9 @@ function Assegnazione_Iniziale_Mazzo_Giocatori() {
             }
         }
     }
-    console.log(mazzo_di_carte_giocatore_1);
-    console.log(mazzo_di_carte_giocatore_2);
 }
-
-
-
 
 Mescolamento_Carte(mazzo_di_carte);
 Assegna_Briscola(mazzo_di_carte);
 Assegnazione_Iniziale_Mazzo_Giocatori(mazzo_di_carte);
 console.log(mazzo_di_carte[33]);
-
-
