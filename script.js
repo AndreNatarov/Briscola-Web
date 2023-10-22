@@ -71,4 +71,11 @@ for(var i = 0; i < 10; i++){
 }  
 
 Mescolamento_Carte(mazzo_di_carte);
+
+function Assegna_Briscola(mazzo_di_carte){
+
+    //let numero_randomico = Math.random()
+
+}
+
 console.log(mazzo_di_carte[0])
