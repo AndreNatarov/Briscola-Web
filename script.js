@@ -74,8 +74,14 @@ Mescolamento_Carte(mazzo_di_carte);
 
 function Assegna_Briscola(mazzo_di_carte){
 
-    //let numero_randomico = Math.random()
+    let numero_randomico = Math.random() * 4;
 
+    for(let i = o; i < mazzo_di_carte.length; i++){
+
+        if(mazzo_di_carte[i].seme == numero_randomico)
+            mazzo_di_carte[i].briscola = true;
+
+    }
 }
 
 console.log(mazzo_di_carte[0])
