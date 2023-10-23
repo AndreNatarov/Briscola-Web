@@ -151,12 +151,23 @@ Mescolamento_Carte(mazzo_di_carte);
 function prigionieroSolitario(){
     document.getElementById("CartaScoperta").src = "/Immagini/"+mazzo_di_carte[conteggioCarte].immagine+".png"
     console.log(mazzo_di_carte[conteggioCarte]);
-    if(mazzo_di_carte[conteggioCarte].valore == conto){
+    if(mazzo_di_carte[conteggioCarte].valore == conto && conteggioCarte < mazzo_di_carte.length){
         document.getElementById("output").innerHTML = "Hai perso (LLLL)";
+        document.getElementById("CartaCoperta").style.pointerEvents = "none";
         conteggioCarte++;
+        if(conto+1 == 4){
+            conto = 1;
+        }else{
+            conto++;
+        }
     }else{
         document.getElementById("conto").innerHTML = conto;
         conteggioCarte++;
+        if(conto+1 == 4){
+            conto = 1;
+        }else{
+            conto++;
+        }
         //aiuto...
     }
 }
