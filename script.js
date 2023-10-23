@@ -157,5 +157,6 @@ function prigionieroSolitario(){
     }else{
         document.getElementById("conto").innerHTML = conto;
         conteggioCarte++;
+        //aiuto...
     }
 }
