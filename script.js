@@ -1,6 +1,6 @@
 class Carta{
 
-    constructor(valore,valore_punteggio,seme,briscola,id_giocatore){
+    constructor(valore,valore_punteggio,seme,briscola, immagine){
 
         this.valore = valore;   //Si inizia da 1 a 10 e l'ordine e' 2, 4, 5, 6, 7, fante, cavaliere, re, 3, asso
         this.valore_punteggio = valore_punteggio;
@@ -143,4 +143,19 @@ if(carta_1 != undefined && carta_2 != undefined){
 carta_1 = undefined;
 carta_2 = undefined;
 
+}
+
+var conto = 1;
+var conteggioCarte = 0;
+Mescolamento_Carte(mazzo_di_carte);
+function prigionieroSolitario(){
+    document.getElementById("CartaScoperta").src = "/Immagini/"+mazzo_di_carte[conteggioCarte].immagine+".png"
+    console.log(mazzo_di_carte[conteggioCarte]);
+    if(mazzo_di_carte[conteggioCarte].valore == conto){
+        document.getElementById("output").innerHTML = "Hai perso (LLLL)";
+        conteggioCarte++;
+    }else{
+        document.getElementById("conto").innerHTML = conto;
+        conteggioCarte++;
+    }
 }
