@@ -9,8 +9,8 @@ class Carta{
         this.immagine = immagine;
     }
 }
-var mazzo_di_carte_giocatore_1 = [], mazzo_di_carte_giocatore_2 = [];
-
+var mazzo_di_carte_giocatore_1 = [], mazzo_di_carte_giocatore_2 = [], mazzo_carte_scartate_giocatore_1 = [], mazzo_carte_scartate_giocatore_2 = [];
+var punteggio_giocatore_1, punteggio_giocatore_2;
 var mazzo_di_carte = [];
 
     mazzo_di_carte[0] = new Carta(1, 0, 0, false,"S2");              //2 di spade
@@ -135,6 +135,10 @@ if(carta_1 != undefined && carta_2 != undefined){
 
                 
 
+            } else if (carta_1.valore != carta_2.valore){
+
+
+
             }
 
         }
@@ -143,6 +147,22 @@ if(carta_1 != undefined && carta_2 != undefined){
 
     carta_1 = undefined;
     carta_2 = undefined;
+
+}
+
+function CalcoloPunti(){
+
+    for(let i = 0; i < mazzo_carte_scartate_giocatore_1.length; i++){
+
+        punteggio_giocatore_1 += mazzo_carte_scartate_giocatore_1.valore_punteggio;
+
+    }
+
+    for(let i = 0; i < mazzo_carte_scartate_giocatore_2.length; i++){
+
+        punteggio_giocatore_2 += mazzo_carte_scartate_giocatore_2.valore_punteggio;
+
+    }
 
 }
 
