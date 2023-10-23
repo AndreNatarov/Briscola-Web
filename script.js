@@ -119,26 +119,39 @@ if(carta_1 != undefined && carta_2 != undefined){
 
     if(carta_1.briscola == true && carta_2.briscola == false){
 
-
+        mazzo_carte_scartate_giocatore_1.push(carta_1, carta_2);
+        RiassegnaCarte();
 
         } else if(carta_1.briscola == false && carta_2.briscola == true){
 
-
+            mazzo_carte_scartate_giocatore_1.push(carta_1, carta_2);
+            RiassegnaCarte();
 
         } else {
 
             if(carta_1.valore > carta_2.valore && carta_1.seme == carta_2.seme){
 
-
+                mazzo_carte_scartate_giocatore_1.push(carta_1, carta_2);
+                RiassegnaCarte();
 
             } else if(carta_1.valore > carta_2.valore && carta_1.seme == carta_2.seme){
 
-                
+                mazzo_carte_scartate_giocatore_1.push(carta_1, carta_2);
+                RiassegnaCarte();
 
             } else if (carta_1.valore != carta_2.valore){
 
+                    if(turno_giocatore == 0){
 
+                        mazzo_carte_scartate_giocatore_1.push(carta_1, carta_2);
+                        RiassegnaCarte();
 
+                    } else if(turno_giocatore == 1){
+
+                        mazzo_carte_scartate_giocatore_1.push(carta_1, carta_2);
+                        RiassegnaCarte();
+
+                    }
             }
 
         }
@@ -152,7 +165,7 @@ if(carta_1 != undefined && carta_2 != undefined){
 
 function RiassegnaCarte(){
 
-if(mazzo_di_carte[0] == undefined){
+    if(mazzo_di_carte[0] == undefined){
 
         for (let i = 0; i < 2; i++) {
 
@@ -160,21 +173,19 @@ if(mazzo_di_carte[0] == undefined){
 
                 if (mazzo_di_carte[j] == undefined) {
 
-                    if (j > 0) {
+                    if (giocatore_corrente == 0) {
 
-                        if (giocatore_corrente == 0) {
+                        mazzo_di_carte_giocatore_1.push(mazzo_di_carte[j-1]);
+                        giocatore_corrente = 1;
 
-                            mazzo_di_carte_giocatore_1.push(mazzo_di_carte[j-1]);
-                            giocatore_corrente = 1;
+                    } else if (giocatore_corrente == 1) {
 
-                        } else if (giocatore_corrente == 1) {
-
-                            mazzo_di_carte_giocatore_2.push(mazzo_di_carte[j-1]);
-                            giocatore_corrente = 0;
-                        }
-
-                        mazzo_di_carte.splice(j-1, 1);
+                        mazzo_di_carte_giocatore_2.push(mazzo_di_carte[j-1]);
+                        giocatore_corrente = 0;
                     }
+
+                    mazzo_di_carte.splice(j-1, 1);
+
                 }
             }
         }
