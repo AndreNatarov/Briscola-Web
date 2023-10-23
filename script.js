@@ -148,14 +148,14 @@ carta_2 = undefined;
 var conto = 1;
 var conteggioCarte = 0;
 Mescolamento_Carte(mazzo_di_carte);
-function prigionieroSolitario(){
-    document.getElementById("CartaScoperta").src = "/Immagini/"+mazzo_di_carte[conteggioCarte].immagine+".png"
-    if(conteggioCarte < mazzo_di_carte.length-1){
-        if(mazzo_di_carte[conteggioCarte].valore == conto){
+function prigionieroSolitario(){ //funzione del prigioniero solitario (vogliamo il 6 T_T)
+    document.getElementById("CartaScoperta").src = "/Immagini/"+mazzo_di_carte[conteggioCarte].immagine+".png" //cos'è? praticamente nell'HTML il tag IMG ha un'ID chiamato "CartaScoperta", ed essa viene sostituita da mazzo.immagine+".png"
+    if(conteggioCarte < mazzo_di_carte.length-1){ //va fino all'ultimo elemento (if > for)
+        if(mazzo_di_carte[conteggioCarte].valore == conto){ //condizione di sconfitta 
             document.getElementById("conto").innerHTML = conto;
             document.getElementById("output").innerHTML = "Hai perso (LLLL)";
             
-            document.getElementById("CartaCoperta").style.pointerEvents = "none";
+            document.getElementById("CartaCoperta").style.pointerEvents = "none"; //disabilita il tag IMG
             conteggioCarte++;
             if(conto+1 == 4){
                 conto = 1;
@@ -171,8 +171,8 @@ function prigionieroSolitario(){
                 conto++;
             }
         }
-    }else{
-        if(mazzo_di_carte[conteggioCarte].valore != 1){
+    }else{ //condizione in caso NON perdi
+        if(mazzo_di_carte[conteggioCarte].valore != 1){ //si arriva all'ultima carta, bisogna controllare se è diversa da un asso (se arrivi a questo punto e perdi devi avere proprio sfiga)
             document.getElementById("conto").innerHTML = conto;
             conteggioCarte++;
             if(conto+1 == 4){
@@ -180,7 +180,7 @@ function prigionieroSolitario(){
             }else{
                 conto++;
             }
-            document.getElementById("CartaCoperta").src = "";
+            document.getElementById("CartaCoperta").src = ""; //togliamo il mazzo (perché l'abbiamo finito)
             document.getElementById("CartaCoperta").style.pointerEvents = "none";
             document.getElementById("output").innerHTML = "Hai vinto! :D"; 
         }else{
@@ -191,7 +191,7 @@ function prigionieroSolitario(){
             }else{
                 conto++;
             }
-            document.getElementById("CartaCoperta").src = "";
+            document.getElementById("CartaCoperta").src = ""; 
             document.getElementById("output").innerHTML = "Hai perso (LLLL)";
             
             document.getElementById("CartaCoperta").style.pointerEvents = "none";
