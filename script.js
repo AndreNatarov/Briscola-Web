@@ -10,6 +10,8 @@ class Carta{
     }
 }
 var mazzo_di_carte_giocatore_1 = [], mazzo_di_carte_giocatore_2 = [];
+var conto = 1;
+var conteggioCarte = 0;
 var mazzo_di_carte = [];
 
     mazzo_di_carte[0] = new Carta(1, 0, 0, false,"S2");              //2 di spade
@@ -145,56 +147,85 @@ if(carta_1 != undefined && carta_2 != undefined){
 
 }
 
-var conto = 1;
-var conteggioCarte = 0;
 Mescolamento_Carte(mazzo_di_carte);
+
 function prigionieroSolitario(){ //funzione del prigioniero solitario (vogliamo il 6 T_T)
+
     document.getElementById("CartaScoperta").src = "/Immagini/"+mazzo_di_carte[conteggioCarte].immagine+".png" //cos'è? praticamente nell'HTML il tag IMG ha un'ID chiamato "CartaScoperta", ed essa viene sostituita da mazzo.immagine+".png"
+    
     if(conteggioCarte < mazzo_di_carte.length-1){ //va fino all'ultimo elemento (if > for)
-        if(mazzo_di_carte[conteggioCarte].valore == conto){ //condizione di sconfitta 
+        
+        if(mazzo_di_carte[conteggioCarte].valore == 10 && conto == 1 || mazzo_di_carte[conteggioCarte].valore == 1 && conto == 2 || mazzo_di_carte[conteggioCarte].valore == 9 && conto == 3){ //condizione di sconfitta 
+
             document.getElementById("conto").innerHTML = conto;
             document.getElementById("output").innerHTML = "Hai perso (LLLL)";
-            
             document.getElementById("CartaCoperta").style.pointerEvents = "none"; //disabilita il tag IMG
             conteggioCarte++;
-            if(conto+1 == 4){
+
+            if(conto + 1 == 4){
+
                 conto = 1;
+
             }else{
+
                 conto++;
+
             }
         }else{
+
             document.getElementById("conto").innerHTML = conto;
             conteggioCarte++;
+
             if(conto+1 == 4){
+
                 conto = 1;
+
             }else{
+
                 conto++;
+
             }
         }
     }else{ //condizione in caso NON perdi
+
         if(mazzo_di_carte[conteggioCarte].valore != 1){ //si arriva all'ultima carta, bisogna controllare se è diversa da un asso (se arrivi a questo punto e perdi devi avere proprio sfiga)
+            
             document.getElementById("conto").innerHTML = conto;
             conteggioCarte++;
+
             if(conto+1 == 4){
+
                 conto = 1;
+
             }else{
+
                 conto++;
+
             }
+
             document.getElementById("CartaCoperta").src = ""; //togliamo il mazzo (perché l'abbiamo finito)
             document.getElementById("CartaCoperta").style.pointerEvents = "none";
-            document.getElementById("output").innerHTML = "Hai vinto! :D"; 
+            document.getElementById("output").innerHTML = "Hai vinto! :D";
+
         }else{
+
             document.getElementById("conto").innerHTML = conto;
             conteggioCarte++;
+
             if(conto+1 == 4){
+
                 conto = 1;
+
             }else{
+
                 conto++;
+
             }
+
             document.getElementById("CartaCoperta").src = ""; 
             document.getElementById("output").innerHTML = "Hai perso (LLLL)";
-            
             document.getElementById("CartaCoperta").style.pointerEvents = "none";
+
         }
 
         
