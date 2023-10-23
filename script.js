@@ -150,6 +150,37 @@ if(carta_1 != undefined && carta_2 != undefined){
 
 }
 
+function RiassegnaCarte(){
+
+if(mazzo_di_carte[0] == undefined){
+
+        for (let i = 0; i < 2; i++) {
+
+            for (let j = 0; j < mazzo_di_carte.length + 1; j++) {
+
+                if (mazzo_di_carte[j] == undefined) {
+
+                    if (j > 0) {
+
+                        if (giocatore_corrente == 0) {
+
+                            mazzo_di_carte_giocatore_1.push(mazzo_di_carte[j-1]);
+                            giocatore_corrente = 1;
+
+                        } else if (giocatore_corrente == 1) {
+
+                            mazzo_di_carte_giocatore_2.push(mazzo_di_carte[j-1]);
+                            giocatore_corrente = 0;
+                        }
+
+                        mazzo_di_carte.splice(j-1, 1);
+                    }
+                }
+            }
+        }
+    }
+}
+
 function CalcoloPunti(){
 
     for(let i = 0; i < mazzo_carte_scartate_giocatore_1.length; i++){
