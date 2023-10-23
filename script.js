@@ -119,11 +119,11 @@ function ScegliCarteDaMostrare(){
     switch(turno_giocatore){
 
         case 0:
-
+        mazzo_di_carte_giocatore_1;
         break;
 
         case 1:
-
+        mazzo_di_carte_giocatore_2;
         break;
 
     }
@@ -132,57 +132,57 @@ function ScegliCarteDaMostrare(){
 
 function Confronto_Carte(carta_1, carta_2){
 
-if(carta_1 != undefined && carta_2 != undefined){
+    if(carta_1 != undefined && carta_2 != undefined){
 
-    if(carta_1.briscola == true && carta_2.briscola == false){
+        if(carta_1.briscola == true && carta_2.briscola == false){
 
-        mazzo_carte_scartate_giocatore_1.push(carta_1, carta_2);
-        turno_giocatore = 0;
-        RiassegnaCarte();
-
-        } else if(carta_1.briscola == false && carta_2.briscola == true){
-
-            mazzo_carte_scartate_giocatore_2.push(carta_1, carta_2);
-            turno_giocatore = 1;
+            mazzo_carte_scartate_giocatore_1.push(carta_1, carta_2);
+            turno_giocatore = 0;
             RiassegnaCarte();
 
-        } else {
-
-            if(carta_1.valore > carta_2.valore && carta_1.seme == carta_2.seme){
-
-                mazzo_carte_scartate_giocatore_1.push(carta_1, carta_2);
-                turno_giocatore = 0;
-                RiassegnaCarte();
-
-            } else if(carta_1.valore > carta_2.valore && carta_1.seme == carta_2.seme){
+            } else if(carta_1.briscola == false && carta_2.briscola == true){
 
                 mazzo_carte_scartate_giocatore_2.push(carta_1, carta_2);
                 turno_giocatore = 1;
                 RiassegnaCarte();
 
-            } else if (carta_1.valore != carta_2.valore){
+            } else {
 
-                    if(turno_giocatore == 0){
+                if(carta_1.valore > carta_2.valore && carta_1.seme == carta_2.seme){
 
-                        mazzo_carte_scartate_giocatore_1.push(carta_1, carta_2);
-                        turno_giocatore = 0;
-                        RiassegnaCarte();
+                    mazzo_carte_scartate_giocatore_1.push(carta_1, carta_2);
+                    turno_giocatore = 0;
+                    RiassegnaCarte();
 
-                    } else if(turno_giocatore == 1){
+                } else if(carta_1.valore > carta_2.valore && carta_1.seme == carta_2.seme){
 
-                        mazzo_carte_scartate_giocatore_2.push(carta_1, carta_2);
-                        turno_giocatore = 1;
-                        RiassegnaCarte();
+                    mazzo_carte_scartate_giocatore_2.push(carta_1, carta_2);
+                    turno_giocatore = 1;
+                    RiassegnaCarte();
 
-                    }
+                } else if (carta_1.valore != carta_2.valore){
+
+                        if(turno_giocatore == 0){
+
+                            mazzo_carte_scartate_giocatore_1.push(carta_1, carta_2);
+                            turno_giocatore = 0;
+                            RiassegnaCarte();
+
+                        } else if(turno_giocatore == 1){
+
+                            mazzo_carte_scartate_giocatore_2.push(carta_1, carta_2);
+                            turno_giocatore = 1;
+                            RiassegnaCarte();
+
+                        }
+                }
+
             }
 
         }
 
-    }
-
-    carta_1 = undefined;
-    carta_2 = undefined;
+        carta_1 = undefined;
+        carta_2 = undefined;
 
 }
 
@@ -233,7 +233,6 @@ function CalcoloPunti(){
 
 var conto = 1;
 var conteggioCarte = 0;
-alert("LORIS");
 Mescolamento_Carte(mazzo_di_carte);
 Assegnazione_Iniziale_Mazzo_Giocatori();
-
+ScegliCarteDaMostrare();
