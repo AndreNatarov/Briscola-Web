@@ -60,14 +60,14 @@ var carta_2;
 function Mescolamento_Carte(mazzo_di_carte) {
     let currentIndex = mazzo_di_carte.length,  randomIndex;
   
-for(var i = 0; i < 10; i++){
+    for(var i = 0; i < 10; i++){
         // While there remain elements to shuffle.
         while (currentIndex > 0) {
-    
+        
         // Pick a remaining element.
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex--;
-    
+        
         // And swap it with the current element.
         [mazzo_di_carte[currentIndex], mazzo_di_carte[randomIndex]] = [
             mazzo_di_carte[randomIndex], mazzo_di_carte[currentIndex]];
