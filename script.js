@@ -150,24 +150,54 @@ var conteggioCarte = 0;
 Mescolamento_Carte(mazzo_di_carte);
 function prigionieroSolitario(){
     document.getElementById("CartaScoperta").src = "/Immagini/"+mazzo_di_carte[conteggioCarte].immagine+".png"
-    console.log(mazzo_di_carte[conteggioCarte]);
-    if(mazzo_di_carte[conteggioCarte].valore == conto && conteggioCarte < mazzo_di_carte.length){
-        document.getElementById("output").innerHTML = "Hai perso (LLLL)";
-        document.getElementById("CartaCoperta").style.pointerEvents = "none";
-        conteggioCarte++;
-        if(conto+1 == 4){
-            conto = 1;
+    if(conteggioCarte < mazzo_di_carte.length-1){
+        if(mazzo_di_carte[conteggioCarte].valore == conto){
+            document.getElementById("conto").innerHTML = conto;
+            document.getElementById("output").innerHTML = "Hai perso (LLLL)";
+            
+            document.getElementById("CartaCoperta").style.pointerEvents = "none";
+            conteggioCarte++;
+            if(conto+1 == 4){
+                conto = 1;
+            }else{
+                conto++;
+            }
         }else{
-            conto++;
+            document.getElementById("conto").innerHTML = conto;
+            conteggioCarte++;
+            if(conto+1 == 4){
+                conto = 1;
+            }else{
+                conto++;
+            }
         }
     }else{
-        document.getElementById("conto").innerHTML = conto;
-        conteggioCarte++;
-        if(conto+1 == 4){
-            conto = 1;
+        if(mazzo_di_carte[conteggioCarte].valore != 1){
+            document.getElementById("conto").innerHTML = conto;
+            conteggioCarte++;
+            if(conto+1 == 4){
+                conto = 1;
+            }else{
+                conto++;
+            }
+            document.getElementById("CartaCoperta").src = "";
+            document.getElementById("CartaCoperta").style.pointerEvents = "none";
+            document.getElementById("output").innerHTML = "Hai vinto! :D"; 
         }else{
-            conto++;
+            document.getElementById("conto").innerHTML = conto;
+            conteggioCarte++;
+            if(conto+1 == 4){
+                conto = 1;
+            }else{
+                conto++;
+            }
+            document.getElementById("CartaCoperta").src = "";
+            document.getElementById("output").innerHTML = "Hai perso (LLLL)";
+            
+            document.getElementById("CartaCoperta").style.pointerEvents = "none";
         }
-        //aiuto...
-    }
+
+        
+    }    
+        
 }
