@@ -161,6 +161,7 @@ function prigionieroSolitario(){ //funzione del prigioniero solitario (vogliamo 
             document.getElementById("conto").innerHTML = conto;
             document.getElementById("output").innerHTML = "Hai perso (LLLL)";
             document.getElementById("CartaCoperta").style.pointerEvents = "none"; //disabilita il tag IMG
+            document.getElementById("bottone").style.visibility = "visible";
             conteggioCarte++;
 
             if(conto + 1 == 4){
@@ -200,6 +201,7 @@ function prigionieroSolitario(){ //funzione del prigioniero solitario (vogliamo 
             document.getElementById("CartaCoperta").src = ""; 
             document.getElementById("output").innerHTML = "Hai perso (LLLL)";
             document.getElementById("CartaCoperta").style.pointerEvents = "none";
+            document.getElementById("bottone").style.visibility = "visible";
         }        
     }           
 }
