@@ -233,7 +233,6 @@ function CalcoloPunti(){
 
 var conto = 1;
 var conteggioCarte = 0;
-alert("LORIS");
 Mescolamento_Carte(mazzo_di_carte);
 Assegnazione_Iniziale_Mazzo_Giocatori();
 
