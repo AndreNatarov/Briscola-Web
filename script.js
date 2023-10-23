@@ -116,9 +116,9 @@ function Assegnazione_Iniziale_Mazzo_Giocatori() {
 
 function Confronto_Carte(carta_1){
 
-    if(turno_giocatore == 0){
-        carta_2 = mazzo_di_carte_giocatore_2[Math.floor(Math.random()*3)];
-    }
+    if(turno_giocatore == 0)
+    carta_2 = mazzo_di_carte_giocatore_2[Math.floor(Math.random()*3)];
+    
 
     if(carta_1 != undefined && carta_2 != undefined){
 
@@ -229,8 +229,6 @@ function CalcoloPunti(){
 
 }
 
-var conto = 1;
-var conteggioCarte = 0;
 Mescolamento_Carte(mazzo_di_carte);
 Assegnazione_Iniziale_Mazzo_Giocatori();
 if(turno_giocatore == 1)
