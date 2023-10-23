@@ -114,23 +114,11 @@ function Assegnazione_Iniziale_Mazzo_Giocatori() {
     }
 }
 
-function ScegliCarteDaMostrare(){
+function Confronto_Carte(carta_1){
 
-    switch(turno_giocatore){
-
-        case 0:
-        mazzo_di_carte_giocatore_1;
-        break;
-
-        case 1:
-        mazzo_di_carte_giocatore_2;
-        break;
-
+    if(turno_giocatore == 0){
+        carta_2 = mazzo_di_carte_giocatore_2[Math.floor(Math.random()*3)];
     }
-
-}
-
-function Confronto_Carte(carta_1, carta_2){
 
     if(carta_1 != undefined && carta_2 != undefined){
 
@@ -145,6 +133,7 @@ function Confronto_Carte(carta_1, carta_2){
                 mazzo_carte_scartate_giocatore_2.push(carta_1, carta_2);
                 turno_giocatore = 1;
                 RiassegnaCarte();
+                carta_2 = mazzo_di_carte_giocatore_2[Math.floor(Math.random()*3)];
 
             } else {
 
@@ -159,6 +148,7 @@ function Confronto_Carte(carta_1, carta_2){
                     mazzo_carte_scartate_giocatore_2.push(carta_1, carta_2);
                     turno_giocatore = 1;
                     RiassegnaCarte();
+                    carta_2 = mazzo_di_carte_giocatore_2[Math.floor(Math.random()*3)];
 
                 } else if (carta_1.valore != carta_2.valore){
 
@@ -173,6 +163,7 @@ function Confronto_Carte(carta_1, carta_2){
                             mazzo_carte_scartate_giocatore_2.push(carta_1, carta_2);
                             turno_giocatore = 1;
                             RiassegnaCarte();
+                            carta_2 = mazzo_di_carte_giocatore_2[Math.floor(Math.random()*3)];
 
                         }
                 }
@@ -192,19 +183,19 @@ function RiassegnaCarte(){
 
         for (let i = 0; i < 2; i++) {
 
-            for (let j = 0; j < mazzo_di_carte.length + 1; j++) {
+            for (let j = 0; j < mazzo_di_carte.length; j++) {
 
                 if (mazzo_di_carte[j] == undefined) {
 
-                    if (giocatore_corrente == 0) {
+                    if (turno_giocatore == 0) {
 
                         mazzo_di_carte_giocatore_1.push(mazzo_di_carte[j-1]);
-                        giocatore_corrente = 1;
+                        turno_giocatore = 1;
 
-                    } else if (giocatore_corrente == 1) {
+                    } else if (turno_giocatore == 1) {
 
                         mazzo_di_carte_giocatore_2.push(mazzo_di_carte[j-1]);
-                        giocatore_corrente = 0;
+                        turno_giocatore = 0;
                     }
 
                     mazzo_di_carte.splice(j-1, 1);
@@ -235,4 +226,5 @@ var conto = 1;
 var conteggioCarte = 0;
 Mescolamento_Carte(mazzo_di_carte);
 Assegnazione_Iniziale_Mazzo_Giocatori();
-ScegliCarteDaMostrare();
+if(turno_giocatore == 1)
+carta_2 = mazzo_di_carte_giocatore_2[Math.floor(Math.random()*3)];
