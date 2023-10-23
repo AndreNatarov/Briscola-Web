@@ -70,7 +70,9 @@ function Mescolamento_Carte(mazzo_di_carte) {
             }
         }
     }  
-
+var conto = 1;
+var conteggioCarte = 0;
+Mescolamento_Carte(mazzo_di_carte);
 function prigionieroSolitario(){ //funzione del prigioniero solitario (vogliamo il 6 T_T)
 
     document.getElementById("CartaScoperta").src = "/Immagini/"+mazzo_di_carte[conteggioCarte].immagine+".png" //cos'è? praticamente nell'HTML il tag IMG ha un'ID chiamato "CartaScoperta", ed essa viene sostituita da mazzo.immagine+".png"
@@ -126,5 +128,3 @@ function prigionieroSolitario(){ //funzione del prigioniero solitario (vogliamo 
         }        
     }           
 }
-
-Mescolamento_Carte();
