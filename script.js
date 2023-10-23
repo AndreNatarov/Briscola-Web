@@ -120,28 +120,28 @@ if(carta_1 != undefined && carta_2 != undefined){
 
 
 
-    } else if(carta_1.briscola == false && carta_2.briscola == true){
+        } else if(carta_1.briscola == false && carta_2.briscola == true){
 
 
 
-    } else {
+        } else {
 
-        if(carta_1.valore > carta_2.valore && carta_1.seme == carta_2.seme){
+            if(carta_1.valore > carta_2.valore && carta_1.seme == carta_2.seme){
 
 
 
-        } else if(carta_1.valore > carta_2.valore && carta_1.seme == carta_2.seme){
+            } else if(carta_1.valore > carta_2.valore && carta_1.seme == carta_2.seme){
 
-            
+                
+
+            }
 
         }
 
     }
 
-}
-
-carta_1 = undefined;
-carta_2 = undefined;
+    carta_1 = undefined;
+    carta_2 = undefined;
 
 }
 
