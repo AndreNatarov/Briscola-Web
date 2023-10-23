@@ -142,4 +142,5 @@ if(carta_1 != undefined && carta_2 != undefined){
 
 carta_1 = undefined;
 carta_2 = undefined;
+
 }
