@@ -11,6 +11,7 @@ class Carta{
 }
 var mazzo_di_carte_giocatore_1 = [], mazzo_di_carte_giocatore_2 = [], mazzo_carte_scartate_giocatore_1 = [], mazzo_carte_scartate_giocatore_2 = [];
 var punteggio_giocatore_1, punteggio_giocatore_2;
+var turno_giocatore = Math.floor(Math.random()*2);
 var mazzo_di_carte = [];
 
     mazzo_di_carte[0] = new Carta(1, 0, 0, false,"S2");              //2 di spade
@@ -113,6 +114,22 @@ function Assegnazione_Iniziale_Mazzo_Giocatori() {
     }
 }
 
+function ScegliCarteDaMostrare(){
+
+    switch(turno_giocatore){
+
+        case 0:
+
+        break;
+
+        case 1:
+
+        break;
+
+    }
+
+}
+
 function Confronto_Carte(carta_1, carta_2){
 
 if(carta_1 != undefined && carta_2 != undefined){
@@ -120,11 +137,13 @@ if(carta_1 != undefined && carta_2 != undefined){
     if(carta_1.briscola == true && carta_2.briscola == false){
 
         mazzo_carte_scartate_giocatore_1.push(carta_1, carta_2);
+        turno_giocatore = 0;
         RiassegnaCarte();
 
         } else if(carta_1.briscola == false && carta_2.briscola == true){
 
-            mazzo_carte_scartate_giocatore_1.push(carta_1, carta_2);
+            mazzo_carte_scartate_giocatore_2.push(carta_1, carta_2);
+            turno_giocatore = 1;
             RiassegnaCarte();
 
         } else {
@@ -132,11 +151,13 @@ if(carta_1 != undefined && carta_2 != undefined){
             if(carta_1.valore > carta_2.valore && carta_1.seme == carta_2.seme){
 
                 mazzo_carte_scartate_giocatore_1.push(carta_1, carta_2);
+                turno_giocatore = 0;
                 RiassegnaCarte();
 
             } else if(carta_1.valore > carta_2.valore && carta_1.seme == carta_2.seme){
 
-                mazzo_carte_scartate_giocatore_1.push(carta_1, carta_2);
+                mazzo_carte_scartate_giocatore_2.push(carta_1, carta_2);
+                turno_giocatore = 1;
                 RiassegnaCarte();
 
             } else if (carta_1.valore != carta_2.valore){
@@ -144,11 +165,13 @@ if(carta_1 != undefined && carta_2 != undefined){
                     if(turno_giocatore == 0){
 
                         mazzo_carte_scartate_giocatore_1.push(carta_1, carta_2);
+                        turno_giocatore = 0;
                         RiassegnaCarte();
 
                     } else if(turno_giocatore == 1){
 
-                        mazzo_carte_scartate_giocatore_1.push(carta_1, carta_2);
+                        mazzo_carte_scartate_giocatore_2.push(carta_1, carta_2);
+                        turno_giocatore = 1;
                         RiassegnaCarte();
 
                     }
@@ -210,60 +233,7 @@ function CalcoloPunti(){
 
 var conto = 1;
 var conteggioCarte = 0;
+alert("LORIS");
 Mescolamento_Carte(mazzo_di_carte);
+Assegnazione_Iniziale_Mazzo_Giocatori();
 
-function prigionieroSolitario(){ //funzione del prigioniero solitario (vogliamo il 6 T_T)
-
-    document.getElementById("CartaScoperta").src = "/Immagini/"+mazzo_di_carte[conteggioCarte].immagine+".png" //cos'è? praticamente nell'HTML il tag IMG ha un'ID chiamato "CartaScoperta", ed essa viene sostituita da mazzo.immagine+".png"
-    
-    if(conteggioCarte < mazzo_di_carte.length-1){ //va fino all'ultimo elemento (if > for)
-        
-        if(mazzo_di_carte[conteggioCarte].valore == 10 && conto == 1 || mazzo_di_carte[conteggioCarte].valore == 1 && conto == 2 || mazzo_di_carte[conteggioCarte].valore == 9 && conto == 3){ //condizione di sconfitta 
-
-            document.getElementById("conto").innerHTML = conto;
-            document.getElementById("output").innerHTML = "Hai perso (LLLL)";
-            document.getElementById("CartaCoperta").style.pointerEvents = "none"; //disabilita il tag IMG
-            document.getElementById("bottone").style.visibility = "visible";
-            conteggioCarte++;
-
-            if(conto + 1 == 4){
-                conto = 1;
-            }else{
-                conto++;
-            }
-        }else{
-            document.getElementById("conto").innerHTML = conto;
-            conteggioCarte++;
-            if(conto+1 == 4){
-                conto = 1;
-            }else{
-                conto++;
-            }
-        }
-    }else{ //condizione in caso NON perdi
-        if(mazzo_di_carte[conteggioCarte].valore != 1){ //si arriva all'ultima carta, bisogna controllare se è diversa da un asso (se arrivi a questo punto e perdi devi avere proprio sfiga) 
-            document.getElementById("conto").innerHTML = conto;
-            conteggioCarte++;
-            if(conto+1 == 4){
-                conto = 1;
-            }else{
-                conto++;
-            }
-            document.getElementById("CartaCoperta").src = ""; //togliamo il mazzo (perché l'abbiamo finito)
-            document.getElementById("CartaCoperta").style.pointerEvents = "none";
-            document.getElementById("output").innerHTML = "Hai vinto! :D";
-        }else{
-            document.getElementById("conto").innerHTML = conto;
-            conteggioCarte++;
-            if(conto+1 == 4){
-                conto = 1;
-            }else{
-                conto++;
-            }
-            document.getElementById("CartaCoperta").src = ""; 
-            document.getElementById("output").innerHTML = "Hai perso (LLLL)";
-            document.getElementById("CartaCoperta").style.pointerEvents = "none";
-            document.getElementById("bottone").style.visibility = "visible";
-        }        
-    }           
-}
