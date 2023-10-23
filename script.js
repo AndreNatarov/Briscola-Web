@@ -1,6 +1,6 @@
 class Carta{
 
-    constructor(valore,valore_punteggio,seme,briscola, immagine){
+    constructor(valore,valore_punteggio,seme,briscola,immagine){
 
         this.valore = valore;   //Si inizia da 1 a 10 e l'ordine e' 2, 4, 5, 6, 7, fante, cavaliere, re, 3, asso
         this.valore_punteggio = valore_punteggio;
@@ -10,16 +10,18 @@ class Carta{
     }
 }
 var mazzo_di_carte_giocatore_1 = [], mazzo_di_carte_giocatore_2 = [], mazzo_carte_scartate_giocatore_1 = [], mazzo_carte_scartate_giocatore_2 = [];
-var punteggio_giocatore_1, punteggio_giocatore_2;
+var punteggio_giocatore_1 = 0, punteggio_giocatore_2 = 0;
 var turno_giocatore = Math.floor(Math.random()*2);
 var mazzo_di_carte = [];
+var carta_1;
+var carta_2;
 
     mazzo_di_carte[0] = new Carta(1, 0, 0, false,"S2");              //2 di spade
     mazzo_di_carte[1] = new Carta(2, 0, 0, false,"S4");              //4 di spade
     mazzo_di_carte[2] = new Carta(3, 0, 0, false,"S5");              //5 di spade
     mazzo_di_carte[3] = new Carta(4, 0, 0, false,"S6");              //6 di spade
     mazzo_di_carte[4] = new Carta(5, 0, 0, false,"S7");              //7 di spade
-    mazzo_di_carte[5] = new Carta(6, 2, 0, false,"S8",);              //fante di spade
+    mazzo_di_carte[5] = new Carta(6, 2, 0, false,"S8");              //fante di spade
     mazzo_di_carte[6] = new Carta(7, 3, 0, false,"S9");              //cavaliere di spade
     mazzo_di_carte[7] = new Carta(8, 4, 0, false,"S10");              //re di spade
     mazzo_di_carte[8] = new Carta(9, 10, 0, false,"S3");              //3 di spade
@@ -230,6 +232,10 @@ function CalcoloPunti(){
 }
 
 Mescolamento_Carte(mazzo_di_carte);
+Assegna_Briscola(mazzo_di_carte);
 Assegnazione_Iniziale_Mazzo_Giocatori();
 if(turno_giocatore == 1)
 carta_2 = mazzo_di_carte_giocatore_2[Math.floor(Math.random()*3)];
+console.log(mazzo_di_carte_giocatore_1);
+console.log(mazzo_di_carte_giocatore_2);
+console.log(mazzo_di_carte_giocatore_1[0].immagine);
