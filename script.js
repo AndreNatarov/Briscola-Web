@@ -220,6 +220,13 @@ function CalcoloPunti(){
 
     }
 
+    if (punteggio_giocatore_1 > punteggio_giocatore_2)
+    alert("HA VINTO L'UOMO");
+    else if(punteggio_giocatore_1 < punteggio_giocatore_2)
+    alert("L'UMANITA'... E' STATA... SCONFITTA...");
+    else if(punteggio_giocatore_1 == punteggio_giocatore_2)
+    alert("Fate schifo entrambi! Pareggio!");
+
 }
 
 var conto = 1;
